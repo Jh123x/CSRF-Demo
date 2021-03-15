@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Victim.com</title>
+</head>
+
+<body>
+    <h1>Welcome to victim.com</h1>
+    <div>
+        <h2>{{result}}</h2>
+    </div>
+    {% if not name %}
+    <h2>Please login</h2>
+    <form method="POST" action='/login'>
+        <label for="name">Username</label>
+        <input name="username" id="username" type="text" />
+        <label for="password">Password</label>
+        <input name="password" id="password" type="password" />
+        <input value="Login" id='submit' type="submit" name="submit" />
+    </form>
+    {% else %}
+    <div>Welcome {{name}}</div>
+    <button><a href='/logout'>Logout</a></button>
+    <h1>You have balance: {{balance}}</h1>
+    <form method="POST" action='/xfer'>
+        <h2>Who do you want to transfer to?</h2>
+        <label for="name">Name</label>
+        <input name="name" id="name" type="text" />
+        <label for="amount">Amount</label>
+        <input name="amount" id="amount" type="number" />
+        <input value="transfer" id='submit' type="submit" name="submit" />
+    </form>
+    {% endif %}
+</body>
+
+</html>
